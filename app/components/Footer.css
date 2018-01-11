@@ -52,12 +52,12 @@
   border-color: rgba(175, 47, 47, 0.2);
 }
 
-.todoCount {
+.transactionCount {
   float: left;
   text-align: left;
 }
 
-.todoCount strong {
+.transactionCount strong {
   font-weight: 300;
 }
 

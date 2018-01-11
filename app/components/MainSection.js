@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters';
+import { SHOW_ALL, SHOW_SENT, SHOW_RECEIVED } from '../constants/TransactionFilters';
 import style from './MainSection.css';
 
-const TODO_FILTERS = {
+const TRANSCATION_FILTERS = {
   [SHOW_ALL]: () => true,
-  [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [SHOW_SENT]: todo => !todo.completed,
+  [SHOW_RECEIVED]: todo => todo.completed
 };
 
 export default class MainSection extends Component {
@@ -69,7 +69,7 @@ export default class MainSection extends Component {
     const { todos, actions } = this.props;
     const { filter } = this.state;
 
-    const filteredTodos = todos.filter(TODO_FILTERS[filter]);
+    const filteredTransactions = todos.filter(TRANSCATION_FILTERS[filter]);
     const completedCount = todos.reduce(
       (count, todo) => (todo.completed ? count + 1 : count),
       0
@@ -79,7 +79,7 @@ export default class MainSection extends Component {
       <section className={style.main}>
         {this.renderToggleAll(completedCount)}
         <ul className={style.todoList}>
-          {filteredTodos.map(todo =>
+          {filteredTransactions.map(todo =>
             <TodoItem key={todo.id} todo={todo} {...actions} />
           )}
         </ul>
