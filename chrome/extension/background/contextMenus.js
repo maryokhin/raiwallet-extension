@@ -1,5 +1,5 @@
 let windowId = 0;
-const CONTEXT_MENU_ID = 'example_context_menu';
+const CONTEXT_MENU_ID = 'raiwallet_context_menu';
 
 function closeIfExist() {
   if (windowId > 0) {
@@ -15,7 +15,7 @@ function popWindow(type) {
     left: 100,
     top: 100,
     width: 800,
-    height: 475,
+    height: 475
   };
   if (type === 'open') {
     options.url = 'window.html';
@@ -27,11 +27,9 @@ function popWindow(type) {
 
 chrome.contextMenus.create({
   id: CONTEXT_MENU_ID,
-  title: 'React Chrome Extension Example',
+  title: 'Rai wallet',
   contexts: ['all'],
-  documentUrlPatterns: [
-    'https://github.com/*'
-  ]
+  documentUrlPatterns: ['https://github.com/*']
 });
 
 chrome.contextMenus.onClicked.addListener((event) => {

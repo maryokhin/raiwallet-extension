@@ -2,8 +2,8 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import TodoItem from '../../../app/components/TodoItem';
-import style from '../../../app/components/TodoItem.css';
+import TransactionItem from '../../../app/components/TransactionItem';
+import style from '../../../app/components/TransactionItem.css';
 import TodoTextInput from '../../../app/components/TodoTextInput';
 
 function setup(editing = false) {
@@ -20,7 +20,7 @@ function setup(editing = false) {
 
   const renderer = TestUtils.createRenderer();
 
-  renderer.render(<TodoItem {...props} />);
+  renderer.render(<TransactionItem {...props} />);
 
   let output = renderer.getRenderOutput();
 
@@ -33,7 +33,7 @@ function setup(editing = false) {
   return { props, output, renderer };
 }
 
-describe('todoapp TodoItem component', () => {
+describe('raiwallet TransactionItem component', () => {
   it('should render correctly', () => {
     const { output } = setup();
 

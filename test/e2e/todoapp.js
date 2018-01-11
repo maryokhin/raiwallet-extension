@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { delay, startChromeDriver, buildWebDriver } from '../func';
 import footerStyle from '../../app/components/Footer.css';
 import mainSectionStyle from '../../app/components/MainSection.css';
-import todoItemStyle from '../../app/components/TodoItem.css';
+import transactionItemStyle from '../../app/components/TransactionItem.css';
 import todoTextInputStyle from '../../app/components/TodoTextInput.css';
 import manifest from '../../chrome/manifest.prod.json';
 
@@ -38,7 +38,7 @@ const editTodo = async (driver, index, key) => {
 
 const completeTodo = async (driver, index) => {
   let todos = await findList(driver);
-  todos[index].findElement(webdriver.By.className(todoItemStyle.toggle)).click();
+  todos[index].findElement(webdriver.By.className(transactionItemStyle.toggle)).click();
   await delay(1000);
   todos = await findList(driver);
   return { todo: todos[index], count: todos.length };
@@ -48,9 +48,9 @@ const deleteTodo = async (driver, index) => {
   let todos = await findList(driver);
   driver.executeScript(
     `document.querySelectorAll('.${mainSectionStyle.todoList} > li')[${index}]
-      .getElementsByClassName('${todoItemStyle.destroy}')[0].style.display = 'block'`
+      .getElementsByClassName('${transactionItemStyle.destroy}')[0].style.display = 'block'`
   );
-  todos[index].findElement(webdriver.By.className(todoItemStyle.destroy)).click();
+  todos[index].findElement(webdriver.By.className(transactionItemStyle.destroy)).click();
   await delay(1000);
   todos = await findList(driver);
   return { count: todos.length };
@@ -98,7 +98,7 @@ describe('window (popup) page', function test() {
     const { todo, count } = await completeTodo(driver, 0);
     expect(count).to.equal(2);
     const className = await todo.getAttribute('class');
-    const { completed, normal } = todoItemStyle;
+    const { completed, normal } = transactionItemStyle;
     expect(className).to.equal(`${completed} ${normal}`);
   });
 
@@ -106,7 +106,7 @@ describe('window (popup) page', function test() {
     driver.findElement(webdriver.By.className(mainSectionStyle.toggleAll)).click();
     const todos = await findList(driver);
     const classNames = await Promise.all(todos.map(todo => todo.getAttribute('class')));
-    const { completed, normal } = todoItemStyle;
+    const { completed, normal } = transactionItemStyle;
     expect(classNames.every(name => name === `${completed} ${normal}`)).to.equal(true);
   });
 

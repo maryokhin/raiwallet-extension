@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import TodoItem from './TodoItem';
+import TransactionItem from './TransactionItem';
 import Footer from './Footer';
 import { SHOW_ALL, SHOW_SENT, SHOW_RECEIVED } from '../constants/TransactionFilters';
 import style from './MainSection.css';
@@ -11,7 +11,6 @@ const TRANSCATION_FILTERS = {
 };
 
 export default class MainSection extends Component {
-
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
@@ -70,18 +69,15 @@ export default class MainSection extends Component {
     const { filter } = this.state;
 
     const filteredTransactions = todos.filter(TRANSCATION_FILTERS[filter]);
-    const completedCount = todos.reduce(
-      (count, todo) => (todo.completed ? count + 1 : count),
-      0
-    );
+    const completedCount = todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0);
 
     return (
       <section className={style.main}>
         {this.renderToggleAll(completedCount)}
         <ul className={style.todoList}>
-          {filteredTransactions.map(todo =>
-            <TodoItem key={todo.id} todo={todo} {...actions} />
-          )}
+          {filteredTransactions.map(transaction => (
+            <TransactionItem key={transaction.id} transaction={transaction} {...actions} />
+          ))}
         </ul>
         {this.renderFooter(completedCount)}
       </section>

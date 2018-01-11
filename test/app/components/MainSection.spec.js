@@ -4,7 +4,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import MainSection from '../../../app/components/MainSection';
 import style from '../../../app/components/MainSection.css';
-import TodoItem from '../../../app/components/TodoItem';
+import TransactionItem from '../../../app/components/TransactionItem';
 import Footer from '../../../app/components/Footer';
 import { SHOW_ALL, SHOW_COMPLETED } from '../../../app/constants/TodoFilters';
 
@@ -119,7 +119,7 @@ describe('todoapp MainSection component', () => {
       expect(list.type).to.equal('ul');
       expect(list.props.children.length).to.equal(2);
       list.props.children.forEach((item, index) => {
-        expect(item.type).to.equal(TodoItem);
+        expect(item.type).to.equal(TransactionItem);
         expect(item.props.todo).to.equal(props.todos[index]);
       });
     });
