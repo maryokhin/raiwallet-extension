@@ -7,3 +7,16 @@
   line-height: 1.2;
   transition: color 0.4s;
 }
+
+.container {
+  display: flex;
+}
+
+.container amount {
+  min-width: 30px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}

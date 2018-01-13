@@ -74,7 +74,7 @@ export default class MainSection extends Component {
     return (
       <section className={style.main}>
         {this.renderToggleAll(completedCount)}
-        <ul className={style.todoList}>
+        <ul className={style.transactionList}>
           {filteredTransactions.map(transaction => (
             <TransactionItem key={transaction.id} transaction={transaction} {...actions} />
           ))}

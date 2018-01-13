@@ -4,39 +4,39 @@
   border-top: 1px solid #e6e6e6;
 }
 
-.todoList {
+.transactionList {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.todoList li {
+.transactionList li {
   position: relative;
-  font-size: 24px;
+  font-size: 20px;
   border-bottom: 1px solid #ededed;
 }
 
-.todoList li:last-child {
+.transactionList li:last-child {
   border-bottom: none;
 }
 
-.todoList li.editing {
+.transactionList li.editing {
   border-bottom: none;
   padding: 0;
 }
 
-.todoList li.editing .edit {
+.transactionList li.editing .edit {
   display: block;
   width: 506px;
   padding: 13px 17px 12px 17px;
   margin: 0 0 0 43px;
 }
 
-.todoList li.editing .view {
+.transactionList li.editing .view {
   display: none;
 }
 
-.todoList li .toggle {
+.transactionList li .toggle {
   text-align: center;
   width: 40px;
   /* auto, since non-WebKit browsers doesn't support input styling */
@@ -50,15 +50,15 @@
   -moz-appearance: none;
 }
 
-.todoList li .toggle:after {
+.transactionList li .toggle:after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
 }
 
-.todoList li .toggle:checked:after {
+.transactionList li .toggle:checked:after {
   content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
-.todoList li label {
+.transactionList li label {
   white-space: pre-line;
   word-break: break-all;
   padding: 15px 60px 15px 15px;
@@ -68,12 +68,12 @@
   transition: color 0.4s;
 }
 
-.todoList li.completed label {
+.transactionList li.completed label {
   color: #d9d9d9;
   text-decoration: line-through;
 }
 
-.todoList li .destroy {
+.transactionList li .destroy {
   display: none;
   position: absolute;
   top: 0;
@@ -88,19 +88,19 @@
   transition: color 0.2s ease-out;
 }
 
-.todoList li .destroy:hover {
+.transactionList li .destroy:hover {
   color: #af5b5e;
 }
 
-.todoList li .destroy:after {
+.transactionList li .destroy:after {
   content: '×';
 }
 
-.todoList li:hover .destroy {
+.transactionList li:hover .destroy {
   display: block;
 }
 
-.todoList li .edit {
+.transactionList li .edit {
   display: none;
 }
 
@@ -133,7 +133,7 @@
   Hack to remove background from Mobile Safari.
   Can't use it globally since it destroys checkboxes in Firefox
 */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   .toggleAll,
   .todoList li .toggle {
     background: none;

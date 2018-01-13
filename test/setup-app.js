@@ -8,5 +8,5 @@ global.navigator = global.window.navigator;
 
 hook({
   generateScopedName: '[name]__[local]___[hash:base64:5]',
-  prepend: postCSSConfig.plugins,
+  prepend: postCSSConfig.plugins
 });

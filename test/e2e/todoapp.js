@@ -11,7 +11,7 @@ import manifest from '../../chrome/manifest.prod.json';
 const extensionName = manifest.name;
 
 const findList = driver =>
-  driver.findElements(webdriver.By.css(`.${mainSectionStyle.todoList} > li`));
+  driver.findElements(webdriver.By.css(`.${mainSectionStyle.transactionList} > li`));
 
 const addTodo = async (driver, key) => {
   // add todo
@@ -47,7 +47,7 @@ const completeTodo = async (driver, index) => {
 const deleteTodo = async (driver, index) => {
   let todos = await findList(driver);
   driver.executeScript(
-    `document.querySelectorAll('.${mainSectionStyle.todoList} > li')[${index}]
+    `document.querySelectorAll('.${mainSectionStyle.transactionList} > li')[${index}]
       .getElementsByClassName('${transactionItemStyle.destroy}')[0].style.display = 'block'`
   );
   todos[index].findElement(webdriver.By.className(transactionItemStyle.destroy)).click();
